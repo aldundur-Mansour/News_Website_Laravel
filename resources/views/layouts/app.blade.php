@@ -17,6 +17,7 @@
 <body>
 <div class="welcome__main__container">
     <div class="nav__container">
+
          {{ $header ??''}}
     </div>
     <div class="news__container">

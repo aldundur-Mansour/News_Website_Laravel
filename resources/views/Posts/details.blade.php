@@ -17,10 +17,9 @@
                 <hr>
             </div>
             <div class="ck-content">
-                {!! $post->content !!})
+                {!! $post->content !!}
             </div>
-            <p> {{ $post->author->name }}</p>
-            <p>{{ $post->category->name }}</p>
+
 
         </div>
 

@@ -1,21 +1,22 @@
 <x-app-layout>
-
+    <x-application-logo />
     <x-slot name="header">
-        @auth
+    @auth
             @include('components.nav-link-admin-page')
         @else
             @include('components.nav-link-landing-page')
         @endauth
     </x-slot>
 
-
     <div>
         @auth
+
             <a href="{{ route('posts.create') }}">  <button class="my__main__button"> ADD NEWS </button></a>
         @endauth
             <div x-data="{ open: false }"  class="full__dimensions">
-                <button @click="open =!open" class="my__main__button">Advance Search filters here</button>
-        <form action="{{route('posts.index')}}" method="GET" style="position: absolute; z-index: 45; width: 90vw;">
+
+                <button @click="open =!open" class="my__main__button">PRESS HERE TO SEARCH OR SCROLL TO BROWSE</button>
+        <form action="{{route('posts.index')}}" method="GET" style="position: absolute; z-index: 45; width: 95vw;">
              <div x-show="open">
                     <input name="search"  class="my__input__text__field" value="{{request('search')}}"/>
                  <button class="my__warning__button">SEARCH</button>
@@ -24,14 +25,14 @@
         </form>
             </div>
 
-
     </div>
     <div class="news__container__content">
         @foreach ($posts as $post)
             <div class="public__news__card__container">
                 <div class="public__news__card__content">
                     <div class="public__news__card__title">
-                        <span>TITLE </span> {{ $post->title }}
+                        <span>TITLE </span> {{ $post->title }} <br>
+                        <span> PUBLISHED AT {{ $post->created_at->format('d/m/Y') }}</span>
                         <hr>
                     </div>
                     <div class="public__news__card__ckeditor ck-content">
@@ -62,12 +63,16 @@
                 </div>
                 <div class="public__news__card__meta">
                     <div class="public__news__card__meta__info">
-                        <p>AUTHOR</p>
+                        <p class="public__news__card__meta__info__title">AUTHOR</p>
                         <p> {{ $post->author->name }}</p>
-                        <p>CATEGORY</p>
+                        <p class="public__news__card__meta__info__title">CATEGORY</p>
                         <p> {{ $post->category->name }}</p>
-                        <p>PUBLISHED</p>
-                        <p> {{ $post->created_at->diffForHumans() }}</p>
+                        <p class="public__news__card__meta__info__title">PUBLISHED</p>
+                        <p > {{ $post->created_at->diffForHumans() }}</p>
+
+                        <p class="public__news__card__meta__info__title">NUMBER OF VIEWS</p>
+                        <p> {{ $post->views }}</p>
+
                     </div>
                     <div>
                         <a href="{{ route('posts.show',$post->id) }}">

@@ -3,23 +3,9 @@
         @include('components.nav-link-admin-page')
     </x-slot>
 
-{{--                <div>--}}
-{{--                    <p> Total News </p>--}}
-{{--                    <p> {{ $posts->count()}}</p>--}}
-{{--                    <p> Number of news per category </p>--}}
-
-{{--                </div>--}}
-
-
-<!-- todo:
-        1- Charts for total news
-        2- Number of news per category
-        3- Comments waiting to be approved
-        4- Chart for total hidden and shown comments in the main dashboard
-        5- Number of visitors for each news
--->
     <div class="dashboard__title">
-        <h1> WELCOME :: {{Auth::user()->name}} </h1>
+        <div style="width:9em"> <x-application-logo/></div>
+        <h5 style="margin-left: auto;"> WELCOME BACK [ {{Auth::user()->name}} ]</h5>
     </div>
     <div class="dashboard__content">
         <div class="charts__container">
@@ -33,10 +19,11 @@
 {{--                {{ $posts->map(function($post){return $post->id . ":" .$post->views ; }) }}--}}
             </div>
             <div class="hidden__shown__chart">
+                <h4>Shown And Hidden Comments</h4>
                 <canvas id="myChart"></canvas>
             </div>
 
-            <div class="news__per__category_container">
+            <div class="hidden__shown__chart">
                 {{--                     <div class="news__per__category_content">--}}
                 {{--                         @foreach($categories as $categorie)--}}
                 {{--                             <div class="category__card__float">--}}
@@ -46,6 +33,8 @@
                 {{--                         @endforeach--}}
 
                 {{--                     </div>--}}
+
+                <h4>Number of News Per Category</h4>
                 <canvas id="news__per__category__chart"></canvas>
 
             </div>
@@ -87,14 +76,14 @@
                     label: 'hidden shown comments',
                     data: [{{$comments->where('is_shown',true)->count()}}, {{$comments->where('is_shown',false)->count()}}],
                     backgroundColor: [
-                        'rgb(158, 57, 232)',
-                        'rgba(26, 26, 26, 0.3)'
+                        'rgb(4,95,208)',
+                        'rgb(26,26,26)'
                        ,
                     ],
                     borderColor: [
 
                     ],
-                    borderWidth: 1
+                    borderWidth: 0
                 }]
             }
         });
@@ -108,15 +97,21 @@
                     label: '',
                     data: {!! $categories->map(function($category){return $category->posts->count();})!!},
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(31,127,201,0.2)',
+                        'rgba(48,44,180,0.87)',
+                        'rgb(123,19,121)',
+                        'rgb(19,39,52)',
+                        'rgb(95,175,175)',
+                        'rgb(206,112,139)',
+                        'rgb(91,113,151)',
+                        'rgb(37,90,92)',
+                        'rgb(144,126,83)',
+                        'rgb(26,26,26)'
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
+
                     ],
-                    borderWidth: 1
+                    borderWidth: 0
                 }]
             }
         });

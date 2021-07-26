@@ -5,27 +5,29 @@
     </x-slot>
 
 <div class="full__dimensions" style="background-color:#1A1A1A ;color:white; display: grid; place-content: center;">
-    Contact Us
-</div>
+      YOU CAN REACH US ON info@jreedah.com.sa       </div>
 
 
-    <div class="public__news__card__container">
-        <div class="full__dimensions" style="padding:1em;" >
+    <div class="public__news__card__container" style="margin-top:2.6em;">
+        <div class="full__dimensions" style="padding:2.6em;" >
 
             <form  method="post" action="{{route('contactus.post')}}">
+
                 @csrf
-                <h3> NAME</h3>
+                <h4> NAME</h4>
                 <input type="text" name="name" class="my__input__text__field"/>
-                <h3>  EMAIL</h3>
+                <h4>  EMAIL</h4>
                 <input type="text" name="email" class="my__input__text__field"/>
-                <h3>  MOBILE </h3>
+                <h4>  MOBILE </h4>
                 <input name="mobile" class="my__input__text__field" type="tel"/>
-                <h3>  CONTENT </h3>
+                <h4>  CONTENT </h4>
                 <input type="text" name="content" class="my__input__text__field"/>
                 <button class="my__main__button">SEND</button>
             </form>
         </div>
-        <div class="full__dimensions vertical__writing" style="background-color:#1A1A1A; color:white;">  </div>
+        <div class="full__dimensions vertical__writing" style="background-color:#1A1A1A; color:white;">
+            <div style="width:30em"> <x-application-logo/></div>
+        </div>
 
     </div>
 

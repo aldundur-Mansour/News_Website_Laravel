@@ -29,16 +29,17 @@ body {
 .nav__container__navigations {
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.nav__container__navigations>*:hover{
+    background-color: #045FD0 ;
 }
 
 .nav__container__Auth {
     height: 100%;
     width: 100%;
-    background-color: #9e39e8;
+    background-color: #045FD0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,7 +63,10 @@ body {
     text-decoration: none;
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
@@ -77,18 +81,17 @@ body {
 }
 
 .news__container__Header {
-    height: 100%;
+    height: 8em;
     width: 100%;
     display: flex;
+    padding-bottom: 2em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-
 }
 
 .news__container__Header > p {
-    background-color: rgba(158, 57, 232, 0.34);
+    background-color: rgba(4, 95, 208, 0.58);
     color:#1A1A1A ;
     text-decoration: underline;
     padding:2px;
@@ -111,6 +114,8 @@ hr {
 
 }
 
+
+
 .news__container__content > a {
     height: 100%;
     width: 100%;
@@ -128,7 +133,7 @@ hr {
 
 .my__main__button:hover {
     cursor: pointer;
-    background-color: #9e39e8;
+    background-color: #045FD0;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 
 }
@@ -192,25 +197,26 @@ hr {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-content: space-between;
+
     padding: 1em;
 }
 
 .public__news__card__title {
-    font-size: 1.2em;
+    font-size: 1.34em;
     font-weight: bold;
-    color: #9e39e8;
+    color: #045FD0;
     text-transform: uppercase;
 }
 
 .public__news__card__title > span {
-    color: rgba(145, 53, 213, 0.33);
+    color: rgba(4, 95, 208, 0.38);
     font-weight: bolder;
-    font-size: 0.7em;
+    font-size: 0.6em;
 }
 
 .public__news__card__ckeditor {
-
+    height: 100%;
+    width: 100%;
 }
 
 .public__news__card__meta {
@@ -223,11 +229,18 @@ hr {
     color: white;
     text-align: center;
     font-size: 0.8rem;
-    background-color: rgba(26, 26, 26, 0.93);
+    background-color: rgb(4, 95, 208);
 }
 
 .public__news__card__meta__info {
     padding: 1em;
+}
+
+.public__news__card__meta__info__title{
+    color: #1A1A1A;
+    font-weight: bolder;
+    padding: 0.5em 0;
+    font-size: 1.05em !important;
 }
 
 /*_________________-DashBoard-_________________*/
@@ -236,14 +249,15 @@ hr {
 .dashboard__title{
     height: 100%;
     width: 100%;
-    background-color: #1A1A1A;
+    background-color: rgb(4, 95, 208);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
     font-size: 1.2em ;
     letter-spacing: 3px;
     color: white;
-    text-align: center;
+    text-align: end;
+
 }
 
 .dashboard__content {
@@ -265,6 +279,9 @@ hr {
     height: 100%;
     width: 100%;
     position: relative;
+    text-align: center;
+    border: 1px solid rgba(26, 26, 26, 0.38);
+    padding:8px;
 }
 .number__of__total__news {
     height: 100%;
@@ -277,7 +294,7 @@ hr {
     line-height: 2;
 }
 .number__of__total__news > h2 {
-    background-color: rgba(158, 57, 232, 0.34);
+    background-color: rgba(4, 95, 208, 0.38);
     color:#1A1A1A ;
     text-decoration: underline;
     padding:2px;
@@ -290,6 +307,8 @@ hr {
     width: 100%;
     height: 100%;
     grid-template-rows: 80% 20%;
+    border: 1px solid #1A1A1A;
+    padding:8px;
 
 }
 .news__per__category_content{
@@ -363,7 +382,7 @@ hr {
     width: 100%;
     height: 100%;
     justify-content: space-between;
-    margin-top:2em;
+
 }
 
 .actoins__form{
@@ -399,7 +418,7 @@ hr {
     border-radius: 0;
 }
 .my__input__text__field:focus{
-    outline-color: rgba(158, 57, 232, 0.34) ;
+    outline-color: rgba(4, 95, 208, 0.38) ;
     border-radius: 0;
 }
 
@@ -430,7 +449,7 @@ hr {
 
 .comment__content__shown{
     padding:1em ;
-    background-color: rgb(158, 57, 232);
+    background-color: rgba(4, 95, 208, 0.58);
     color:white;
     display: grid;
     grid-template-rows: 80% 20%;
@@ -444,7 +463,7 @@ hr {
 .comment__published_at{
     width: 100%;
     height: 100%;
-    background-color: rgba(249, 244, 236, 0.29);
+    background-color: rgba(185, 205, 213, 0.29);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -469,12 +488,17 @@ hr {
     color: white;
     display: grid;
     place-content: center;
-    font-size: 2.5em;
+    font-size: 1.4em;
+    padding:1.3em;
     text-transform: uppercase;
-    padding:1.4em;
+    line-height: 1.6;
     text-align:center;
 }
 
+.about__us__logo__container{
+    width: 30vh;
+
+}
 
 .pagination__number__container *{
     display: flex;

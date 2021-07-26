@@ -48,7 +48,7 @@ class CommentController extends Controller
 
         Comment::create($request->all());
 
-        return redirect()->route('posts.index')
+        return redirect()->route('posts.show', $request->post_id)
             ->with('success', 'Comment created successfully.');
     }
 

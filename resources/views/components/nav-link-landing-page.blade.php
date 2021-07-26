@@ -9,11 +9,10 @@
                 <img src="{{asset('assets/user.svg')}}"/>
             </a>
         @else
-            <a href="{{ route('login') }}">Log in</a>
+            <a href="{{ route('login') }}">
+                <img  src="{{asset('assets/login.svg')}}"/>
+            </a>
 
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}">Register</a>
-            @endif
         @endauth
     @endif
 </div>
