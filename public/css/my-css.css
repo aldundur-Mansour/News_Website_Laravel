@@ -84,6 +84,7 @@ body {
     justify-content: center;
     align-items: center;
 
+
 }
 
 .news__container__Header > p {
@@ -93,16 +94,16 @@ body {
     padding:2px;
     font-weight: bolder;
     letter-spacing: 5px;
-    font-size: 1.2em;
+    font-size: 2.5em;
 }
 
 hr {
     color: rgba(26, 26, 26, 0.11);
-
     margin: 0.4em 0;
 }
 
 .news__container__content {
+    padding-top:2em;
     height: 100%;
     width: 100%;
     display: flex;
@@ -371,3 +372,118 @@ hr {
     justify-content: center;
 
 }
+
+
+/*_________________-Edit A Post-_________________*/
+.edit__actions__nav {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.edit__form__container {
+    padding:3em ;
+    position: relative;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+
+}
+.my__input__text__field{
+    width: 100%;
+    border: 2px solid #1A1A1A;
+    padding: 1em;
+    margin:  1em 0;
+    border-radius: 0;
+}
+.my__input__text__field:focus{
+    outline-color: rgba(158, 57, 232, 0.34) ;
+    border-radius: 0;
+}
+
+.full__dimensions{
+    width: 100%;
+    height: 100%;
+}
+
+/*_________________-Details-_________________*/
+
+.details__main__container {
+    padding:1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.details__content{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.details__comments{
+    padding-top:1em ;
+    border-top:3px  solid rgba(26, 26, 26, 0.64);
+    text-align: center;
+}
+
+.comment__content__shown{
+    padding:1em ;
+    background-color: rgb(158, 57, 232);
+    color:white;
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+.comment__content__hidden{
+    padding:1em ;
+    background-color: rgba(26, 26, 26, 0.3);
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+.comment__published_at{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(249, 244, 236, 0.29);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: .9em;
+}
+.comment__content__actions{
+   display: flex;
+    flex-direction: column;
+    background-color: #1A1A1A;
+}
+.full__dimensions__enforced{
+    width: 30vw;
+    height: 10vh;
+    position: relative;
+    z-index: 34;
+}
+
+/*  About US */
+
+.about__us__content__container{
+    background-color: #1A1A1A;
+    color: white;
+    display: grid;
+    place-content: center;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    padding:1.4em;
+    text-align:center;
+}
+
+
+.pagination__number__container *{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #1A1A1A;
+    color: white;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+

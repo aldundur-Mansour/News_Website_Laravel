@@ -10,8 +10,18 @@ class Post extends Model
     use HasFactory;
 
     protected $with = (['category','author' ,'comments']) ;
-   protected $guarded= [];
+    protected $guarded= [];
 
+    public function scopeFilter($query ,array $filters){
+        if(isset($filters['search'])) {
+            $query
+                ->where('title','like', '%' . request('search') . '%' )
+                ->orWhere('content','like', '%' . request('search') . '%');
+        }
+    }
+
+
+    // Relationships
     public function category() {
         return $this->belongsTo(Category::class);
     }

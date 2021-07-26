@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,17 +12,17 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Routing\ControllerMiddlewareOptions
      */
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['index','show']);
+        return $this->middleware('auth')->except(['index','show']);
     }
 
     public function index()
     {
-        return view('Posts.posts',['posts'=>Post::latest()->get()]);
+        return view('Posts.posts',['posts'=>Post::latest()->filter(request(['search']))->paginate(10)]);
     }
 
     /**
@@ -31,7 +32,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('Posts.create');
+        $categories = Category::all();
+        return view('Posts.create',['categories'=>$categories]);
     }
 
     /**
@@ -42,6 +44,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $request->validate([
             'title' => 'required',
             'content' => 'required',
@@ -74,7 +77,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('Posts.edit', ['post'=>$post]);
+        $categories = Category::all();
+        return view('Posts.edit', ['post'=>$post ,'categories'=> $categories]);
     }
 
     /**

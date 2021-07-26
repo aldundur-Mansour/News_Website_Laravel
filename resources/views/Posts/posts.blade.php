@@ -11,12 +11,21 @@
 
     <div>
         @auth
-            <div class="my__main__button"><a href="{{ route('posts.create') }}"> ADD NEWS </a></div>
+            <a href="{{ route('posts.create') }}">  <button class="my__main__button"> ADD NEWS </button></a>
         @endauth
-        <div class="my__main__button"> Advance Search filters here</div>
+            <div x-data="{ open: false }"  class="full__dimensions">
+                <button @click="open =!open" class="my__main__button">Advance Search filters here</button>
+        <form action="{{route('posts.index')}}" method="GET" style="position: absolute; z-index: 45; width: 90vw;">
+             <div x-show="open">
+                    <input name="search"  class="my__input__text__field" value="{{request('search')}}"/>
+                 <button class="my__warning__button">SEARCH</button>
+             </div>
+
+        </form>
+            </div>
+
 
     </div>
-
     <div class="news__container__content">
         @foreach ($posts as $post)
             <div class="public__news__card__container">
@@ -30,9 +39,9 @@
                     </div>
                     <div class="admin__news__actions_container">
                         <div x-data="{ open: false }">
-                            <button @click="open = ! open" class="my__main__button">Comments({{$post->comments->count()}})</button>
+                            <button @click="open = ! open" class="my__main__button">Comments({{$post->comments->where('is_approved',true)->where('is_shown',true) ->count()}})</button>
                             <div x-show="open">
-                                @foreach ($post->comments as $comment)
+                                @foreach ($post->comments->where('is_approved',true)->where('is_shown',true) as $comment)
                                     <li>
                                         {{$comment->content}}
                                     </li>
@@ -71,6 +80,7 @@
 
 
         @endforeach
+         <div class="pagination__number__container">{{$posts->links()}}</div>
     </div>
 
 

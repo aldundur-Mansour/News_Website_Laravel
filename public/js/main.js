@@ -1,3 +1,5 @@
+const csrfx = document.getElementsByName("_token")[0].value ;
+3
 ClassicEditor
     .create( document.querySelector( '.editor' ), {
 
@@ -14,13 +16,14 @@ ClassicEditor
                 'outdent',
                 'indent',
                 '|',
-                'imageUpload',
+                'imageInsert',
+
                 'blockQuote',
                 'insertTable',
                 'mediaEmbed',
                 'undo',
                 'redo',
-                '|',
+                '_',
                 'findAndReplace',
                 'fontColor',
                 'fontFamily',
@@ -29,7 +32,7 @@ ClassicEditor
                 'fontSize',
                 'highlight',
                 'horizontalLine',
-                'imageInsert',
+                'imageUpload',
                 'strikethrough',
                 'alignment',
                 'textPartLanguage'
@@ -54,18 +57,13 @@ ClassicEditor
             ]
         },
         licenseKey: '',
+        mediaEmbed:{previewsInData: true},
         simpleUpload: {
             // The URL that the images are uploaded to.
-            uploadUrl: '/laravel-filemanager/upload?type=Image&',
-
+            uploadUrl: '/laravel-filemanager/upload?type=Images&_token='+`${csrfx}`,
             // Enable the XMLHttpRequest.withCredentials property.
             withCredentials: true,
 
-            // Headers sent along with the XMLHttpRequest to the upload server.
-            headers: {
-                'X-CSRF-TOKEN': 'CSRF-Token',
-                Authorization: 'Bearer <JSON Web Token>'
-            }
         }
 
 

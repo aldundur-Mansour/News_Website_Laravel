@@ -1,11 +1,16 @@
 <div class="nav__container__navigations">
-    <a href="{{ route('posts.index') }}" >MANAGE NEWS</a>
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <a href="route('logout')"
-           onclick="event.preventDefault();
+    <div class=" ">
+        <a href="{{ route('posts.index') }}" >  MANAGE NEWS</a>
+    </div>
+    <div class="">
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <a href="route('logout')"
+               onclick="event.preventDefault();
                                         this.closest('form').submit();"> LOGOUT </a>
-    </form>
+        </form>
+    </div>
+
 </div>
 <div class="nav__container__Auth">
     @if (Route::has('login'))

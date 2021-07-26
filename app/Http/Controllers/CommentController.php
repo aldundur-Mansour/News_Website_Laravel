@@ -10,11 +10,11 @@ class CommentController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Routing\ControllerMiddlewareOptions
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['index','show']);
+        return $this->middleware('auth')->except(['index','show','store']);
     }
 
 
@@ -89,7 +89,7 @@ class CommentController extends Controller
 
         $comment->update($request->all());
 
-        return redirect()->route('dashboard')
+        return redirect()->route('posts.show',$comment->post_id)
             ->with('success', 'Updated updated successfully.');
     }
 
@@ -97,10 +97,12 @@ class CommentController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment-> delete() ;
+        return redirect()->route('posts.show',$comment->post_id)
+            ->with('success', 'Comment deleted successfully.');
     }
 }

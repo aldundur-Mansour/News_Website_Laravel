@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         //\App\Models\User::factory(10)->create();
       // Post::factory(13)->create(['user_id'=>1]);
-        Comment::factory(12)->create();
+        Comment::factory(12)->create(['post_id'=>36]);
     //   Post::factory(10)->create(['category_id'=>1]) ;
 
     }
