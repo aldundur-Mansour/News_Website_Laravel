@@ -17,15 +17,15 @@
         <form action="{{ route('posts.update', $post->id) }}" method="POST" id="edit_form">
             @csrf
             @method('PUT')
-            <h3 style="color:#9e39e8">EDIT THE TITLE</h3>
+            <h3 style="color:#045FD0">EDIT THE TITLE</h3>
             <input type="text" name="title" value="{{ $post->title }}" class="my__input__text__field"/>
-            <h3 style="color:#9e39e8">CHOOSE A CATEGORY</h3>
+            <h3 style="color:#045FD0">CHOOSE A CATEGORY</h3>
             <select name="category_id" class="my__input__text__field">
                 @foreach($categories as $category)
                     <option value="{{$category->id}}"> {{$category->name}} </option>
                 @endforeach
             </select>
-            <h3 style="margin-bottom:  1em ; color:#9e39e8">EDIT THE CONTENT </h3>
+            <h3 style="margin-bottom:  1em ; color:#045FD0">EDIT THE CONTENT </h3>
             <textarea class="editor" style="height:50px" name="content">{{ $post->content }}</textarea>
             <input type="number" name="user_id" value="{{Auth::user()->id}}" hidden>
         </form>

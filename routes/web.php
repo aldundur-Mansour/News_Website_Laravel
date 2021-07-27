@@ -55,10 +55,18 @@ Route::post('/contact-us',function(Request $request){
         ->with('success', 'Message created successfully.');
 })->name('contactus.post');
 
-
+Route::get('/inbox',function(){
+    return view('inbox',['messages' => Message::latest()->get()]) ;
+})->middleware(['auth'])->name('inbox');
 
 Route::get('/about-us',function(){
     return view('about-us');
 })->name('aboutus');
 
+Route::get('/statistics',function(){
+
+    return view('statistics', ['posts'=>
+        Post::latest()->get()
+        ]);
+})->middleware(['auth'])->name('statistics');
 require __DIR__.'/auth.php';

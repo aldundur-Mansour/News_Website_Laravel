@@ -30,7 +30,7 @@ body {
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr ;
 }
 .nav__container__navigations>*:hover{
     background-color: #045FD0 ;
@@ -51,6 +51,7 @@ body {
     width: 100%;
     font-weight: bolder;
 }
+
 
 .nav__container__Auth > a > img {
     height: 100%;
@@ -222,7 +223,6 @@ hr {
 .public__news__card__meta {
     height: 100%;
     width: 100%;
-    background-color: #1A1A1A;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -238,7 +238,7 @@ hr {
 
 .public__news__card__meta__info__title{
     color: #1A1A1A;
-    font-weight: bolder;
+    font-weight: 800;
     padding: 0.5em 0;
     font-size: 1.05em !important;
 }
@@ -246,17 +246,17 @@ hr {
 /*_________________-DashBoard-_________________*/
 
 
-.dashboard__title{
+.dashboard__title {
     height: 100%;
     width: 100%;
     background-color: rgb(4, 95, 208);
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-content: space-between;
     font-size: 1.2em ;
     letter-spacing: 3px;
     color: white;
-    text-align: end;
+    text-align: center;
 
 }
 
@@ -280,7 +280,7 @@ hr {
     width: 100%;
     position: relative;
     text-align: center;
-    border: 1px solid rgba(26, 26, 26, 0.38);
+    /*border: 1px solid rgba(26, 26, 26, 0.38);*/
     padding:8px;
 }
 .number__of__total__news {
@@ -292,11 +292,11 @@ hr {
     padding:1em ;
     text-align: center;
     line-height: 2;
+
 }
 .number__of__total__news > h2 {
-    background-color: rgba(4, 95, 208, 0.38);
-    color:#1A1A1A ;
-    text-decoration: underline;
+    background-color: rgb(4, 95, 208);
+    color:white ;
     padding:2px;
     font-weight: bolder;
     letter-spacing: 5px;
@@ -349,7 +349,7 @@ hr {
     display:flex ;
     flex-direction: column;
     overflow-y: scroll;
-    border-left:3px  solid rgba(26, 26, 26, 0.64);
+    /*border-left:3px  solid rgba(26, 26, 26, 0.64);*/
     text-align: center;
 }
 .comments__content__tobe__approved{
@@ -445,12 +445,15 @@ hr {
     padding-top:1em ;
     border-top:3px  solid rgba(26, 26, 26, 0.64);
     text-align: center;
+
+
 }
+
 
 .comment__content__shown{
     padding:1em ;
-    background-color: rgba(4, 95, 208, 0.58);
-    color:white;
+    background-color: rgb(4, 95, 208);
+    color:#1A1A1A;
     display: grid;
     grid-template-rows: 80% 20%;
 }
@@ -463,10 +466,11 @@ hr {
 .comment__published_at{
     width: 100%;
     height: 100%;
-    background-color: rgba(185, 205, 213, 0.29);
+    background-color: #F9F4EC;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding:1em;
     font-size: .9em;
 }
 .comment__content__actions{
@@ -511,3 +515,95 @@ hr {
     align-items: center;
 }
 
+.float__button__container{
+
+    background: no-repeat center url("../assets/inbox.svg");
+    width:50px;
+    height:50px;
+    background-color: #1A1A1A;
+    border-radius:50px;
+    text-align:center;
+
+}
+
+.table__container {
+    background-color: #1A1A1A;
+}
+
+/* Statistic */
+.table{
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 0px;
+    border-color: grey;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    text-align: center;
+}
+.table__header{
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    color: white;
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+/*tr{*/
+/*    display: table-row;*/
+/*    vertical-align: inherit;*/
+/*    border-color: inherit;*/
+/*}*/
+
+
+/*tbody {*/
+/*    display: table-row-group;*/
+/*    vertical-align: middle;*/
+/*    border-color: inherit;*/
+/*}*/
+
+
+.stats__card__container{
+    width: 95%;
+    height: fit-content;
+    margin: 1em auto;
+    background-color: white;
+    border-radius: 0.4rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.table__titles {
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    justify-content: space-evenly;
+    background-color: #1A1A1A;
+    color: white;
+    border: #1A1A1A;
+}
+table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+
+th{
+    font-size: 0.7em ;
+}
+td{
+    font-size: 0.5em;
+}
+.data__records{
+
+    display: flex;
+    flex-direction: row;
+
+
+
+}

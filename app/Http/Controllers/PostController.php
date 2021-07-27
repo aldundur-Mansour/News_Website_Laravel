@@ -22,7 +22,11 @@ class PostController extends Controller
 
     public function index()
     {
-        return view('Posts.posts',['posts'=>Post::latest()->filter(request(['search']))->paginate(10)]);
+        return view('Posts.posts',[
+            'posts'=>Post::latest()->filter(request(['search','category','author','from','to','author']))->paginate(10),
+            'categories'=>Category::all()
+
+        ]);
     }
 
     /**
@@ -50,9 +54,9 @@ class PostController extends Controller
             'category_id'=>'required'
         ]);
 
-        Post::create($request->all());
+        $post = Post::create($request->all());
 
-        return redirect()->route('posts.index')
+        return redirect()->route('posts.show',$post->id)
             ->with('success', 'Post created successfully.');
     }
 
@@ -97,7 +101,7 @@ class PostController extends Controller
 
         $post->update($request->all());
 
-        return redirect()->route('posts.index')
+        return redirect()->route('posts.show',$post->id)
             ->with('success', 'Post updated successfully.');
     }
 

@@ -6,7 +6,7 @@
             @csrf
             <a class="full__dimensions" href="route('logout')"
                onclick="event.preventDefault();
-                                        this.closest('form').submit();"> LOGOUT </a>
+                                        this.closest('form').submit();"> LOG OUT </a>
         </form>
     </div>
     <div class="full__dimensions" >
@@ -14,15 +14,19 @@
         <a href="{{ url('/') }}" >  HOME </a>
 
     </div>
+
     <div class="full__dimensions" >
 
         <a href="{{ route('posts.index') }}" >  MANAGE NEWS</a>
 
     </div>
 
+
 </div>
 <div class="nav__container__Auth">
-
+{{--    <a href="{{ url('/dashboard') }}">--}}
+{{--        <img  src="{{asset('assets/inbox.svg')}}"/>--}}
+{{--    </a>--}}
     @if (Route::has('login'))
         @auth
             <a href="{{ url('/dashboard') }}">
@@ -36,4 +40,5 @@
 
         @endauth
     @endif
+
 </div>

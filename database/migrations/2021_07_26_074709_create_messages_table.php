@@ -17,7 +17,7 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->unsignedInteger('mobile');
+            $table->string('mobile');
             $table->string('content');
             $table->timestamps();
         });

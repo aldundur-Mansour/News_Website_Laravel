@@ -13,16 +13,35 @@
 
             <a href="{{ route('posts.create') }}">  <button class="my__main__button"> ADD NEWS </button></a>
         @endauth
-            <div x-data="{ open: false }"  class="full__dimensions">
+            <div x-data="{ open: false }"  class="full__dimensions" >
 
                 <button @click="open =!open" class="my__main__button">PRESS HERE TO SEARCH OR SCROLL TO BROWSE</button>
-        <form action="{{route('posts.index')}}" method="GET" style="position: absolute; z-index: 45; width: 95vw;">
+
+        <form action="{{route('posts.index')}}" method="GET" style="position: absolute; z-index: 45; width: 90vw;background-color: #1A1A1A; color:white">
              <div x-show="open">
+                    <h4 style="padding-top:1em;">CHOOSE A CATEGORY</h4>
+                     <select name="category" class="full__dimensions my__input__text__field">
+                         <option value="" selected  >None</option>
+                         @foreach($categories as $category)
+                             <option value="{{$category->id}}"> {{$category->name}} </option>
+                         @endforeach
+                     </select>
+                 <h4>SEARCH KEY </h4>
                     <input name="search"  class="my__input__text__field" value="{{request('search')}}"/>
+                 <h4>AUTHOR </h4>
+                 <input name="author"  class="my__input__text__field" value="{{request('author')}}"/>
+                 <h4>FROM</h4>
+                 <input  class="my__input__text__field" type="date" name="from"/>
+                 <h4  >TO</h4>
+                 <input  class="my__input__text__field" type="date" name="to" />
                  <button class="my__warning__button">SEARCH</button>
              </div>
 
         </form>
+
+
+
+
             </div>
 
     </div>
@@ -32,7 +51,8 @@
                 <div class="public__news__card__content">
                     <div class="public__news__card__title">
                         <span>TITLE </span> {{ $post->title }} <br>
-                        <span> PUBLISHED AT {{ $post->created_at->format('d/m/Y') }}</span>
+                        <span> PUBLISHED AT {{ $post->created_at->format('d/m/Y') }} |</span>
+                        <span> LAST MODIFIED {{ $post->updated_at->format('d/m/Y') }}</span>
                         <hr>
                     </div>
                     <div class="public__news__card__ckeditor ck-content">
@@ -69,7 +89,6 @@
                         <p> {{ $post->category->name }}</p>
                         <p class="public__news__card__meta__info__title">PUBLISHED</p>
                         <p > {{ $post->created_at->diffForHumans() }}</p>
-
                         <p class="public__news__card__meta__info__title">NUMBER OF VIEWS</p>
                         <p> {{ $post->views }}</p>
 

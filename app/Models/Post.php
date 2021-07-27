@@ -13,11 +13,31 @@ class Post extends Model
     protected $guarded= [];
 
     public function scopeFilter($query ,array $filters){
-        if(isset($filters['search'])) {
+
+        $query->when($filters['search'] ?? false, fn($query, $search) =>
+        $query
+            ->where('title', 'like', '%' . $search . '%')
+            ->orWhere('content', 'like', '%' . $search . '%'));
+
+        $query
+            ->when($filters['category'] ?? false, fn($query, $category) =>
+        $query
+            ->whereHas('category', fn ($query) =>
+        $query
+            ->where('id', $category)));
+
+        $query
+            ->when($filters['author'] ?? false, fn($query, $author) =>
             $query
-                ->where('title','like', '%' . request('search') . '%' )
-                ->orWhere('content','like', '%' . request('search') . '%');
-        }
+                ->whereHas('author', fn ($query) =>
+                $query
+                    ->where('id', $author)));
+
+
+        $query->when( isset($filters['from']) && isset($filters['to']), fn($query) =>
+        $query
+            ->whereBetween('created_at',[$filters['from'],$filters['to']]));
+
     }
 
 

@@ -5,7 +5,13 @@
 
     <div class="dashboard__title">
         <div style="width:9em"> <x-application-logo/></div>
-        <h5 style="margin-left: auto;"> WELCOME BACK [ {{Auth::user()->name}} ]</h5>
+        <h5 style="margin: auto;"> WELCOME BACK [ {{Auth::user()->name}} ]</h5>
+        <a style="margin: auto; display: flex ; text-decoration: none; color:white ; font-size:0.6em ;" href="{{route('inbox')}}">
+
+            <div  class = "float__button__container"> </div>
+            INBOX
+        </a>
+
     </div>
     <div class="dashboard__content">
         <div class="charts__container">
@@ -15,8 +21,10 @@
             </div>
 
 
-            <div> Number of visitors for each news
-{{--                {{ $posts->map(function($post){return $post->id . ":" .$post->views ; }) }}--}}
+            <div class="number__of__total__news">
+                <h2> NEWS STATISTICS </h2>
+                <br>
+                  <a href="{{route('statistics')}}"> <buton class="my__main__button"> SHOW </buton> </a>
             </div>
             <div class="hidden__shown__chart">
                 <h4>Shown And Hidden Comments</h4>
@@ -24,19 +32,8 @@
             </div>
 
             <div class="hidden__shown__chart">
-                {{--                     <div class="news__per__category_content">--}}
-                {{--                         @foreach($categories as $categorie)--}}
-                {{--                             <div class="category__card__float">--}}
-                {{--                                 <div class="news__per__category__name"> {{$categorie->name}}</div>--}}
-                {{--                                 <div class="news__per__category__posts"> {{$categorie->posts->count()}}</div>--}}
-                {{--                             </div>--}}
-                {{--                         @endforeach--}}
-
-                {{--                     </div>--}}
-
                 <h4>Number of News Per Category</h4>
                 <canvas id="news__per__category__chart"></canvas>
-
             </div>
 
         </div>
@@ -115,5 +112,6 @@
                 }]
             }
         });
+
     </script>
 </x-app-layout>

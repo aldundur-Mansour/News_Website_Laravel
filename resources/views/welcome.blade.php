@@ -15,7 +15,8 @@
                         <div class="public__news__card__content">
                             <div class="public__news__card__title">
                                 <span>TITLE </span> {{ $post->title }} <br>
-                                <span> PUBLISHED AT {{ $post->created_at->format('d/m/Y') }}</span>
+                                <span> PUBLISHED AT {{ $post->created_at->format('d/m/Y') }} |</span>
+                                <span> LAST MODIFIED {{ $post->updated_at->format('d/m/Y') }}</span>
                                 <hr>
                             </div>
                             <div class="public__news__card__ckeditor ck-content">
