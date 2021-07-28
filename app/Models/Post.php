@@ -31,7 +31,7 @@ class Post extends Model
             $query
                 ->whereHas('author', fn ($query) =>
                 $query
-                    ->where('id', $author)));
+                    ->where('name', 'like' , '%' . $author . "%")));
 
 
         $query->when( isset($filters['from']) && isset($filters['to']), fn($query) =>
