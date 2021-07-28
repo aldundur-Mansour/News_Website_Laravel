@@ -21,7 +21,9 @@
     --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2);
     --ck-todo-list-checkmark-size: 16px;
 }
-
+.ckeditor{
+    padding:1em ;
+}
 /* ckeditor5-font/theme/fontsize.css */
 .ck-content .text-tiny {
     font-size: .7em;
