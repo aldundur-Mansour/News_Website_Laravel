@@ -1,62 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<div  align="left" >
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+#  Jreedah News
 
-## About Laravel
+![alt text](https://github.com/aldundur-Mansour/News_Website_Laravel/blob/main/jreedah-logo.svg?raw=true)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+###  Introduction
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The world's stylish digital news is at your fingertips.We have an open, safe, and vibrant community that is delighted to welcome you. Reading, browsing and commenting on the news has never been easier.
+Your opinion matters; share it within our community.
+    
+---
+### Demo
+[Demo](https://jreedah-8g5n5.ondigitalocean.app/)
+--- 
+### DB scheme
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+![alt text](https://github.com/aldundur-Mansour/News_Website_Laravel/blob/main/jreedah-db.png?raw=true)
 
-## Learning Laravel
+---
+### Prerequisites
+- PHP >= 7.4
+- Composer
+- nodejs
+- Apache Server
+---
+### Front-End 
+- Blade
+- Javascript
+- CSS
+---
+### Back-End
+- PHP Laravel
+- MySql (Local) and PostgreSQL (Production)
+- Digital Ocean for deployment (pre-configured Nginx)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+--- 
+### Requirements Checklist
+#### Main Requirements:
+- [x]  Admin login page.
+- [x]  Admin shall Add news.
+- [x]  News contain the following (title, category, author name, content (can
+  have video and images) and date of publish)
+- [x]  Admin shall Edit news.
+- [x]  Admin shall Delete news.
+- [x]  Admin have main dashboard that have charts to display total news,
+  number of news per category.
+- [x]  All news shall be displayed on the public news landing page as following
+  (last 10 news in main page and all remaining in another page with search
+  feature)
+- [x]  public news landing page shall have about us and contact us pages
+#### Additional Requirements:
+- [x]  Users can add a comment to any news but the comment will only be
+  shown if the admin approves it.
+- [x]  Users shall have an advance search page with following filters (date
+  range filter, Muti-selector for category filter, and search field that
+  searches in (title, content and author))
+- [x]  Admin shall Edit a comment.
+- [x]  Admin shall show/hide a comment.
+- [x]  Admin shall delete a comment.
+- [x]  Admin shall have a chart for total hidden and shown comments in the
+  main dashboard
+- [x]  Admin shall have number of visitors for each news.
+#### Required Technologies:
+- [x]  PHP Laravel
+- [x]  MySQL
+- [x]  HTML (blade)
+- [x]  CSS
+- [x]  JavaScript Or JQuery
+### Additional Technologies:
+- [ ]  Tailwind
+- [ ]  VueJs
+- [ ]  Scout
+- [ ]  Valet and Nginx
+---
+### Developer
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### Mansour Aldundur
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+### License & Resource
+- [CKEDITOR](https://ckeditor.com/ckeditor-5/)
+- [Chart.js](https://www.chartjs.org/)
+- [Laravel File Manager](https://unisharp.github.io/laravel-filemanager/installation)
+</div>
